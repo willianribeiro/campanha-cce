@@ -121,6 +121,14 @@ main {
   }
 
 
+/* RESPONSIVE */
+@media (max-width: 560px) {
+  .c-gallery {
+    justify-content: center;
+  }
+}
+
+
 /* HELPERS */
 .h-mb-1 { margin-bottom: 8px; }
 .h-mb-2 { margin-bottom: 16px; }
