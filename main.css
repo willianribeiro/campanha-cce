@@ -67,7 +67,8 @@ main {
     }
 
 /* COMPONENT: BUTTON */
-.c-button-contribuir {
+.c-button {
+  display: inline-block;
   padding: 16px 24px;
   color: #ffffff;
   background-color: #44b5df;
@@ -75,15 +76,20 @@ main {
   border-radius: 8px;
   text-transform: uppercase;
   font-weight: bold;
+  text-decoration: none;
 }
 
-.c-button-contribuir.is-big {
+.c-button.is-big {
   font-size: 24px;
   width: 100%;
   max-width: 300px;
 }
 
-.c-button-contribuir:active {
+.c-button.is-full-width {
+  width: 100%;
+}
+
+.c-button:active {
   background-color: #057fac;
 }
 
@@ -119,6 +125,34 @@ main {
   .c-list ol {
     margin-bottom: 24px;
   }
+
+
+/* COMPONENT: FORM */
+.c-form + .c-form {
+  margin-top: 24px;
+}
+
+  .c-form label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .c-form input {
+    padding: 0 8px;
+    margin-top: 8px;
+    height: 45px;
+    width: 100%;
+    border: 1px solid #555555;
+    border-width: 0 0 3px 0;
+    border-radius: 3px;
+    background-color: #aaa;
+    color: #333;
+    font-size: 18px;
+  }
+    .c-form input:focus {
+      outline-color: #057fac;
+      background-color: #ffffff;
+    }
 
 
 /* RESPONSIVE */

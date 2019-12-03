@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Formulário de contribuição - Centro Cultural Esplanada</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <a href="/">
+        <img src="img/logo.png" alt="logo do centro cultural esplanada">
+      </a>
+    </header>
+    <main>
+      <header class="h-mb-5 h-mt-3">
+        <h1>Formulário de contribuição</h1>
+      </header>
+
+      <form action="#">
+        <div class="c-form">
+          <label>Nome completo *</label>
+          <input type="text" placeholder="" name="name" required>
+        </div>
+        <div class="c-form">
+          <label>Celular *</label>
+          <input type="text" placeholder="" name="phone" required>
+        </div>
+        <div class="c-form">
+          <label>E-mail *</label>
+          <input type="email" placeholder="" name="email" required>
+        </div>
+        <div class="c-form">
+          <label>Valor da contribuição *</label>
+          <input type="number" step="10" min="0" placeholder="" name="contribuition" required>
+        </div>
+        <div class="h-my-5 h-text-align-center">
+          <button type="submit" class="c-button is-full-width">Enviar</button>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

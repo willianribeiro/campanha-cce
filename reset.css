@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -56,4 +57,7 @@ input[type="reset"] {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+input {
+	box-sizing: border-box;
 }
