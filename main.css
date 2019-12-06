@@ -131,6 +131,9 @@ main {
 select {
   width: 100%;
   height: 40px;
+  margin-top: 8px;
+  /* -webkit-appearance: none;
+  appearance: none; */
 }
 
 

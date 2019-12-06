@@ -41,6 +41,24 @@
           <input type="number" step="1" min="0" placeholder="" name="valor" required>
         </div>
         <div class="c-form">
+          <label>Deseja parcelar? *</label>
+          <select name="parcelamento" required>
+            <option value="1" selected>Parcela única</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+        <div class="c-form">
+          <label>Como deseja fazer a contribuição? *</label>
           <select name="forma_pagamento" required>
             <option value="itau">Transferência para Itaú</option>
             <option value="brasil">Transferência para Banco do Brasil</option>
@@ -54,8 +72,12 @@
         </div>
       </form>
 
-      <div id="js-sucesso" style="display: none">
-        Sucesso
+      <div id="js-msg-sucesso" style="display: none">
+        <div style="display: none" id="js-via-itau">Itaú</div>
+        <div style="display: none" id="js-via-bb">Banco do Brasil</div>
+        <div style="display: none" id="js-via-santander">Santander</div>
+        <div style="display: none" id="js-via-cartao">Cartão</div>
+        <div style="display: none" id="js-via-boleto">Boleto</div>
       </div>
     </main>
   </div>
