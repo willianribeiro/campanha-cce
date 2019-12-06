@@ -127,6 +127,13 @@ main {
   }
 
 
+/* COMPONENT: SELECT */
+select {
+  width: 100%;
+  height: 40px;
+}
+
+
 /* COMPONENT: FORM */
 .c-form + .c-form {
   margin-top: 24px;

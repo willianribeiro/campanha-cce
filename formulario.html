@@ -7,6 +7,9 @@
   <title>Formulário de contribuição - Centro Cultural Esplanada</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="main.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="main.js"></script>
 </head>
 <body>
   <div class="site-wrapper">
@@ -20,14 +23,14 @@
         <h1>Formulário de contribuição</h1>
       </header>
 
-      <form action="#">
+      <form id="js-form">
         <div class="c-form">
           <label>Nome completo *</label>
-          <input type="text" placeholder="" name="name" required>
+          <input type="text" placeholder="" name="nome" required>
         </div>
         <div class="c-form">
           <label>Celular *</label>
-          <input type="text" placeholder="" name="phone" required>
+          <input type="text" placeholder="" name="telefone" required>
         </div>
         <div class="c-form">
           <label>E-mail *</label>
@@ -35,12 +38,25 @@
         </div>
         <div class="c-form">
           <label>Valor da contribuição *</label>
-          <input type="number" step="10" min="0" placeholder="" name="contribuition" required>
+          <input type="number" step="1" min="0" placeholder="" name="valor" required>
+        </div>
+        <div class="c-form">
+          <select name="forma_pagamento" required>
+            <option value="itau">Transferência para Itaú</option>
+            <option value="brasil">Transferência para Banco do Brasil</option>
+            <option value="santander">Transferência para Santander</option>
+            <option value="cartao">Cartão de crédito</option>
+            <option value="boleto">Boleto bancário</option>
+          </select>
         </div>
         <div class="h-my-5 h-text-align-center">
-          <button type="submit" class="c-button is-full-width">Enviar</button>
+          <button type="submit" id="js-form-submit" class="c-button is-full-width">Enviar</button>
         </div>
       </form>
+
+      <div id="js-sucesso" style="display: none">
+        Sucesso
+      </div>
     </main>
   </div>
 </body>
