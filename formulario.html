@@ -38,28 +38,11 @@
         </div>
         <div class="c-form">
           <label>Valor da contribuição *</label>
-          <input type="number" step="1" min="0" placeholder="" name="valor" required>
-        </div>
-        <div class="c-form">
-          <label>Deseja parcelar? *</label>
-          <select name="parcelamento" required>
-            <option value="1" selected>Parcela única</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
+          <input type="number" step="1" min="0" placeholder="" name="valor" id="js-valor-contrib" required>
         </div>
         <div class="c-form">
           <label>Como deseja fazer a contribuição? *</label>
-          <select name="forma_pagamento" required>
+          <select name="forma_pagamento" id="js-forma-pagamento" required>
             <option value="itau">Transferência para Itaú</option>
             <option value="brasil">Transferência para Banco do Brasil</option>
             <option value="santander">Transferência para Santander</option>
@@ -67,9 +50,14 @@
             <option value="boleto">Boleto bancário</option>
           </select>
         </div>
+        <div class="c-form">
+          <label>Deseja parcelar? *</label>
+          <select name="parcelamento" id="js-parcelas" required></select>
+        </div>
         <div class="h-my-5 h-text-align-center">
           <button type="submit" id="js-form-submit" class="c-button is-full-width">Enviar</button>
         </div>
+        <input type="hidden" name="criado_em" id="js-criado-em">
       </form>
 
       <div id="js-msg-sucesso" style="display: none">
