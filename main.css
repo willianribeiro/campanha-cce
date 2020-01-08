@@ -147,7 +147,8 @@ select {
     font-weight: bold;
   }
 
-  .c-form input {
+  .c-form input,
+  .c-form select {
     padding: 0 8px;
     margin-top: 8px;
     height: 45px;
@@ -170,6 +171,37 @@ select {
   .c-gallery {
     justify-content: center;
   }
+}
+
+
+/* COMPONENT: INFO */
+.c-info + .c-info {
+  margin-top: 8px;
+}
+
+  .c-info-title {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .c-info label {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+  }
+
+  .c-info div {
+    color: #333;
+    font-size: 20px;
+  }
+
+
+/* COMPONENT: LOADER */
+.c-loader {
+  padding: 24px 0;
+  font-size: 26px;
 }
 
 

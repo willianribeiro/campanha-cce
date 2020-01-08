@@ -11,6 +11,8 @@ window.onload = function () {
   const $contribSantander = $('#js-via-santander')
   const $contribCartao = $('#js-via-cartao')
   const $contribBoleto = $('#js-via-boleto')
+  const $loader = $('#js-loader')
+  const $pageTitle = $('#js-page-title')
   const url = 'https://script.google.com/macros/s/AKfycbxRCsDwB88yfzA-J0EXC4ge3AbCnztFnehxVzGvnYzDaN8bPqo/exec'
 
   function preencherParcelas() {
@@ -43,38 +45,32 @@ window.onload = function () {
 
   $btnSubmit.on('click', function(e) {
     e.preventDefault();
+    $form.hide()
+    $loader.show()
     $inputCriadoEm.val(new Date().toLocaleString('pt-br'))
-    const jqxhr = $.ajax({
+    $.ajax({
       url: url,
       method: "GET",
       dataType: "json",
       data: $form.serialize()
     })
       .done(function () {
-        $form.hide()
+        $loader.hide()
         $msgSuccess.show()
+        $pageTitle.text('Dados para contribuição')
         const formaPagamento = $form.find('select[name="forma_pagamento"]').val()
 
         if (formaPagamento === 'itau') {
           $contribItau.show()
-        }
-
-        if (formaPagamento === 'brasil') {
+        } else if (formaPagamento === 'brasil') {
           $contribBB.show()
-        }
-
-        if (formaPagamento === 'santander') {
+        } else if (formaPagamento === 'santander') {
           $contribSantander.show()
-        }
-
-        if (formaPagamento === 'cartao') {
+        } else if (formaPagamento === 'cartao') {
           $contribCartao.show()
-        }
-
-        if (formaPagamento === 'boleto') {
+        } else if (formaPagamento === 'boleto') {
           $contribBoleto.show()
         }
-
       })
   })
 

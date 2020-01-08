@@ -34,7 +34,7 @@
     </header>
     <main>
       <header class="h-mb-5 h-mt-3">
-        <h1>Formulário de contribuição</h1>
+        <h1 id="js-page-title">Formulário de contribuição</h1>
       </header>
 
       <form id="js-form">
@@ -75,11 +75,81 @@
       </form>
 
       <div id="js-msg-sucesso" style="display: none">
-        <div style="display: none" id="js-via-itau">Itaú</div>
-        <div style="display: none" id="js-via-bb">Banco do Brasil</div>
-        <div style="display: none" id="js-via-santander">Santander</div>
-        <div style="display: none" id="js-via-cartao">Cartão</div>
-        <div style="display: none" id="js-via-boleto">Boleto</div>
+        <div style="display: none" id="js-via-itau">
+          <div class="c-info-title">Banco Itaú</div>
+          <div class="c-info">
+            <label>Nome:</label>
+            <div>Assoc Ass Cult Educacional</div>
+          </div>
+          <div class="c-info">
+            <label>CNPJ:</label>
+            <div>15.804.521/0001-79</div>
+          </div>
+          <div class="c-info">
+            <label>Agência:</label>
+            <div>1529</div>
+          </div>
+          <div class="c-info">
+            <label>Conta corrente:</label>
+            <div>03135-1</div>
+          </div>
+        </div>
+        <div style="display: none" id="js-via-bb">
+          <div class="c-info-title">Banco do Brasil</div>
+          <div class="c-info">
+            <label>Nome:</label>
+            <div>Adriano Carvalho de Paula</div>
+          </div>
+          <div class="c-info">
+            <label>CPF:</label>
+            <div>875.562.351-49</div>
+          </div>
+          <div class="c-info">
+            <label>Agência:</label>
+            <div>3574-2</div>
+          </div>
+          <div class="c-info">
+            <label>Conta corrente:</label>
+            <div>27.568-9</div>
+          </div>
+        </div>
+        <div style="display: none" id="js-via-santander">
+          <div class="c-info-title">Santander</div>
+          <div class="c-info">
+            <label>Nome:</label>
+            <div>Ivan Balducci</div>
+          </div>
+          <div class="c-info">
+            <label>CPF:</label>
+            <div>608.087.568-34</div>
+          </div>
+          <div class="c-info">
+            <label>Agência:</label>
+            <div>0093</div>
+          </div>
+          <div class="c-info">
+            <label>Conta corrente:</label>
+            <div>01-007337-7</div>
+          </div>
+        </div>
+        <div style="display: none" id="js-via-cartao">
+          <div class="c-info-title">Cartão</div>
+          <div class="c-info">
+            <label>Pagseguro</label>
+            <div><link para o pagseguro></div>
+          </div>
+        </div>
+        <div style="display: none" id="js-via-boleto">
+          <div class="c-info-title">Boleto</div>
+          <div class="c-info">
+            <label>Pagseguro</label>
+            <div><link para o pagseguro></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="js-loader" class="c-loader" style="display: none;">
+        Enviando, aguarde...
       </div>
     </main>
   </div>
