@@ -1,6 +1,5 @@
 window.onload = function () {
   const $form = $('form#js-form')
-  const $btnSubmit = $('#js-form-submit')
   const $inputValorContrib = $('#js-valor-contrib')
   const $inputCriadoEm = $('#js-criado-em')
   const $selectParcelas = $('#js-parcelas')
@@ -15,7 +14,7 @@ window.onload = function () {
   const $pageTitle = $('#js-page-title')
   const url = 'https://script.google.com/macros/s/AKfycbxRCsDwB88yfzA-J0EXC4ge3AbCnztFnehxVzGvnYzDaN8bPqo/exec'
 
-  function preencherParcelas() {
+  function preencherParcelas () {
     const value = Number($inputValorContrib.val())
     const formaPagamento = $selectFormaPagamento.val()
     $selectParcelas.find('option').remove()
@@ -43,7 +42,7 @@ window.onload = function () {
     $selectParcelas.append(new Option(`12 x R$ ${Number(value / 12).toFixed(2)}`, '12'));
   }
 
-  $btnSubmit.on('click', function(e) {
+  function sendFormData (e) {
     e.preventDefault();
     $form.hide()
     $loader.show()
@@ -72,8 +71,9 @@ window.onload = function () {
           $contribBoleto.show()
         }
       })
-  })
+  }
 
+  $form.on('submit', sendFormData)
   $inputValorContrib.on('blur', preencherParcelas)
   $selectFormaPagamento.on('change', preencherParcelas)
 }
