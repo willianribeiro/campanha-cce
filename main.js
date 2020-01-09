@@ -1,6 +1,7 @@
 window.onload = function () {
   const $form = $('form#js-form')
   const $inputValorContrib = $('#js-valor-contrib')
+  const $inputPhone = $('#js-phone')
   const $inputCriadoEm = $('#js-criado-em')
   const $selectParcelas = $('#js-parcelas')
   const $selectFormaPagamento = $('#js-forma-pagamento')
@@ -15,7 +16,8 @@ window.onload = function () {
   const url = 'https://script.google.com/macros/s/AKfycbxRCsDwB88yfzA-J0EXC4ge3AbCnztFnehxVzGvnYzDaN8bPqo/exec'
 
   function preencherParcelas () {
-    const value = Number($inputValorContrib.val())
+    const valueStr = $inputValorContrib.val().split('.').join('').split(',')[0]
+    const value = Number(valueStr)
     const formaPagamento = $selectFormaPagamento.val()
     $selectParcelas.find('option').remove()
 
@@ -74,6 +76,8 @@ window.onload = function () {
   }
 
   $form.on('submit', sendFormData)
-  $inputValorContrib.on('blur', preencherParcelas)
   $selectFormaPagamento.on('change', preencherParcelas)
+  $inputValorContrib.on('blur', preencherParcelas)
+  $inputValorContrib.mask('#.##0,00', { reverse: true, placeholder: 'R$ 0,00' })
+  $inputPhone.mask('(00) 00000-0000', { placeholder: '(99) 98888-8888' })
 }

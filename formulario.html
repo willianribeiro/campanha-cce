@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="main.css">
 
   <!-- JAVASCRIPT -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
   <script src="main.js"></script>
 </head>
 <body>
@@ -33,10 +33,12 @@
       </a>
     </header>
     <main>
+      <!-- FORM TITLE -->
       <header class="h-mb-5 h-mt-3">
         <h1 id="js-page-title">Formulário de contribuição</h1>
       </header>
 
+      <!-- FORM -->
       <form id="js-form">
         <div class="c-form">
           <label>Nome completo *</label>
@@ -44,7 +46,7 @@
         </div>
         <div class="c-form">
           <label>Celular *</label>
-          <input type="text" placeholder="" name="telefone" required>
+          <input type="text" placeholder="" name="telefone" id="js-phone" required>
         </div>
         <div class="c-form">
           <label>E-mail *</label>
@@ -52,7 +54,7 @@
         </div>
         <div class="c-form">
           <label>Valor da contribuição *</label>
-          <input type="number" step="1" min="0" placeholder="" name="valor" id="js-valor-contrib" required>
+          <input type="text" name="valor" id="js-valor-contrib" required>
         </div>
         <div class="c-form">
           <label>Como deseja fazer a contribuição? *</label>
@@ -74,6 +76,7 @@
         <input type="hidden" name="criado_em" id="js-criado-em">
       </form>
 
+      <!-- FORM SUCCESS -->
       <div id="js-msg-sucesso" style="display: none">
         <div style="display: none" id="js-via-itau">
           <div class="c-info-title">Banco Itaú</div>
@@ -148,6 +151,7 @@
         </div>
       </div>
 
+      <!-- FORM LOADER -->
       <div id="js-loader" class="c-loader" style="display: none;">
         Enviando, aguarde...
       </div>
