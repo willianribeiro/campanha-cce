@@ -3,6 +3,7 @@ window.onload = function () {
   const $inputValorContrib = $('#js-valor-contrib')
   const $inputPhone = $('#js-phone')
   const $inputCriadoEm = $('#js-criado-em')
+  const $parcelasWrapper = $('#js-parcelas-wrapper')
   const $selectParcelas = $('#js-parcelas')
   const $selectFormaPagamento = $('#js-forma-pagamento')
   const $msgSuccess = $('#js-msg-sucesso')
@@ -21,12 +22,14 @@ window.onload = function () {
     const formaPagamento = $selectFormaPagamento.val()
     $selectParcelas.find('option').remove()
 
-    if (value <= 0) {
+    if (formaPagamento === 'boleto' || formaPagamento === 'cartao') {
+      $parcelasWrapper.hide()
       return
+    } else {
+      $parcelasWrapper.show()
     }
 
-    if (formaPagamento === 'boleto') {
-      $selectParcelas.append(new Option(`Parcela única (R$ ${value})`, '1'));
+    if (value <= 0) {
       return
     }
 

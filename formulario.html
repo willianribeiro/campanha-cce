@@ -66,7 +66,7 @@
             <option value="boleto">Boleto bancário</option>
           </select>
         </div>
-        <div class="c-form">
+        <div class="c-form" id="js-parcelas-wrapper">
           <label>Deseja parcelar? *</label>
           <select name="parcelamento" id="js-parcelas" required></select>
         </div>
@@ -74,14 +74,15 @@
           <button type="submit" class="c-button is-full-width">Enviar</button>
         </div>
         <input type="hidden" name="criado_em" id="js-criado-em">
+        <input type="hidden" name="campanha" value="residencia">
       </form>
 
       <!-- FORM SUCCESS -->
-      <div id="js-msg-sucesso" style="display: none">
+      <div style="display: none" id="js-msg-sucesso">
         <div style="display: none" id="js-via-itau">
           <div class="c-info-title">Banco Itaú</div>
           <div class="c-info">
-            <label>Nome:</label>
+            <label>Titular:</label>
             <div>Assoc Ass Cult Educacional</div>
           </div>
           <div class="c-info">
@@ -100,7 +101,7 @@
         <div style="display: none" id="js-via-bb">
           <div class="c-info-title">Banco do Brasil</div>
           <div class="c-info">
-            <label>Nome:</label>
+            <label>Titular:</label>
             <div>Adriano Carvalho de Paula</div>
           </div>
           <div class="c-info">
@@ -119,7 +120,7 @@
         <div style="display: none" id="js-via-santander">
           <div class="c-info-title">Santander</div>
           <div class="c-info">
-            <label>Nome:</label>
+            <label>Titular:</label>
             <div>Ivan Balducci</div>
           </div>
           <div class="c-info">
@@ -138,8 +139,19 @@
         <div style="display: none" id="js-via-cartao">
           <div class="c-info-title">Cartão</div>
           <div class="c-info">
-            <label>Pagseguro</label>
-            <div><link para o pagseguro></div>
+            <p></p>
+            <div>
+              <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="_blank">
+                <input type="hidden" name="currency" value="BRL" />
+                <input type="hidden" name="receiverEmail" value="acere.sjc@gmail.com" />
+                <input
+                  type="image"
+                  name="submit"
+                  alt="Pague com PagSeguro - é rápido, grátis e seguro!"
+                  src="img/pagseguro-bg.png"
+                />
+              </form>
+            </div>
           </div>
         </div>
         <div style="display: none" id="js-via-boleto">
