@@ -35,52 +35,82 @@
     <main>
       <!-- FORM TITLE -->
       <header class="h-mb-5 h-mt-3">
+        <!-- <h1 id="js-page-title">Formulário enviado com sucesso!</h1> -->
         <h1 id="js-page-title">Formulário de contribuição</h1>
       </header>
 
       <!-- FORM -->
-      <form id="js-form">
+      <form class="nnja" id="js-form">
+        <!-- COTA -->
         <div class="c-form">
-          <label>Nome completo *</label>
-          <input type="text" placeholder="" name="nome" required>
-        </div>
-        <div class="c-form">
-          <label>Celular *</label>
-          <input type="text" placeholder="" name="telefone" id="js-phone" required>
-        </div>
-        <div class="c-form">
-          <label>E-mail *</label>
-          <input type="email" placeholder="" name="email" required>
-        </div>
-        <div class="c-form">
-          <label>Valor da contribuição *</label>
-          <input type="text" name="valor" id="js-valor-contrib" required>
-        </div>
-        <div class="c-form">
-          <label>Como deseja fazer a contribuição? *</label>
-          <select name="forma_pagamento" id="js-forma-pagamento" required>
-            <option value="itau">Transferência para Itaú</option>
-            <option value="brasil">Transferência para Banco do Brasil</option>
-            <option value="santander">Transferência para Santander</option>
-            <option value="cartao">Cartão de crédito</option>
-            <option value="boleto">Boleto bancário</option>
+          <label>Escola uma das cotas para contribuir *</label>
+          <select name="tipo_cota" id="js-tipo-cota" required>
+            <option value="">-- selecione --</option>
+            <option value="cota_300">60,00 x 5 - Cota Estagiário (R$ 300)</option>
+            <option value="cota_500">100,00 x 5 - Cota Universitário (R$ 500)</option>
+            <option value="cota_750">150,00 x 5 - Cota Trainee (R$ 750)</option>
+            <option value="cota_1250">250,00 x 5 - Cota Profissional (R$ 1.250)</option>
+            <option value="cota_3000">600,00 x 5 - Cota Sênior (R$ 3.000)</option>
+            <option value="cota_3000plus">3.000,00+ - Cota Diretoria</option>
           </select>
         </div>
-        <div class="c-form" id="js-parcelas-wrapper">
-          <label>Deseja parcelar? *</label>
-          <select name="parcelamento" id="js-parcelas" required></select>
+
+        <!-- VALOR - SE DOACAO ÚNICA -->
+        <div class="c-form ninja" id="js-section-cota-unica">
+          <label>Valor da contribuição *</label>
+          <input type="text" name="valor" id="js-valor-contrib">
         </div>
-        <div class="h-my-5 h-text-align-center">
-          <button type="submit" class="c-button is-full-width">Enviar</button>
+
+        <!-- PARA TODO TIPO DE DOACAO -->
+        <div class="c-form ninja" id="js-section-contact">
+          <div class="c-form">
+            <label>Como deseja fazer a contribuição? *</label>
+            <select name="forma_pagamento" id="js-forma-pagamento" required>
+              <option value="">-- selecione --</option>
+              <option value="itau">Transferência para Itaú</option>
+              <option value="brasil">Transferência para Banco do Brasil</option>
+              <option value="santander">Transferência para Santander</option>
+              <option value="cartao">Cartão de crédito</option>
+            </select>
+          </div>
+          <div class="c-form">
+            <label>Nome completo *</label>
+            <input type="text" placeholder="" name="nome" required>
+          </div>
+          <div class="c-form">
+            <label>Celular *</label>
+            <input type="text" placeholder="" name="telefone" id="js-phone" required>
+          </div>
+          <div class="c-form">
+            <label>E-mail *</label>
+            <input type="email" placeholder="" name="email" required>
+          </div>
+          <div class="c-form">
+            <label>Quem te falou sobre a contribuição econômica? *</label>
+            <input type="amigo" placeholder="" name="amigo" required>
+          </div>
+  
+          <div class="h-my-5 h-text-align-center">
+            <button type="submit" class="c-button is-full-width">Enviar</button>
+          </div>
+          <input type="hidden" name="criado_em" id="js-criado-em">
+          <input type="hidden" name="campanha" value="residencia">
         </div>
-        <input type="hidden" name="criado_em" id="js-criado-em">
-        <input type="hidden" name="campanha" value="residencia">
       </form>
 
       <!-- FORM SUCCESS -->
-      <div style="display: none" id="js-msg-sucesso">
-        <div style="display: none" id="js-via-itau">
+      <div class="ninja" id="js-msg-sucesso">
+        <div class="ninja" id="js-via-itau">
+          <p class="h-mb-4">Seguem abaixo os dados para você fazer a transferência:</p>
           <div class="c-info-title">Banco Itaú</div>
+          <div class="c-info">
+            <label>Agência:</label>
+            <div>1529</div>
+          </div>
+          <div class="c-info">
+            <label>Conta corrente:</label>
+            <div>03135-1</div>
+          </div>
           <div class="c-info">
             <label>Titular:</label>
             <div>Assoc Ass Cult Educacional</div>
@@ -90,56 +120,36 @@
             <div>15.804.521/0001-79</div>
           </div>
           <div class="c-info">
-            <label>Agência:</label>
-            <div>1529</div>
+            <label>Valor:</label>
+            <div id="js-itau-cota-label" class="fw-bold">R$ 00,00</div>
           </div>
-          <div class="c-info">
-            <label>Conta corrente:</label>
-            <div>03135-1</div>
-          </div>
-        </div>
-        <div style="display: none" id="js-via-bb">
-          <div class="c-info-title">Banco do Brasil</div>
-          <div class="c-info">
-            <label>Titular:</label>
-            <div>Adriano Carvalho de Paula</div>
-          </div>
-          <div class="c-info">
-            <label>CPF:</label>
-            <div>875.562.351-49</div>
-          </div>
-          <div class="c-info">
-            <label>Agência:</label>
-            <div>3574-2</div>
-          </div>
-          <div class="c-info">
-            <label>Conta corrente:</label>
-            <div>27.568-9</div>
+          <p class="p-description h-mt-5 h-mb-3">O <strong class="fw-bold">Anderson Ramos</strong> é o responsável por acompanhar as contribuições da campanha. Ele deve entrar em contato contigo para confirmar a transferência que você já pode fazer.</p>
+          <div class="p-description h-mb-5">
+            Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.
           </div>
         </div>
-        <div style="display: none" id="js-via-santander">
-          <div class="c-info-title">Santander</div>
-          <div class="c-info">
-            <label>Titular:</label>
-            <div>Ivan Balducci</div>
-          </div>
-          <div class="c-info">
-            <label>CPF:</label>
-            <div>608.087.568-34</div>
-          </div>
-          <div class="c-info">
-            <label>Agência:</label>
-            <div>0093</div>
-          </div>
-          <div class="c-info">
-            <label>Conta corrente:</label>
-            <div>01-007337-7</div>
+
+        <div class="ninja" id="js-via-bb">
+          <p class="h-mt-3 h-mb-3 f-line-height">O <strong class="fw-bold">Anderson Ramos</strong> é o responsável por acompanhar as contribuições da campanha. Ele entrará em contato com as orientações para você realizar sua transferência no <strong class="fw-bold">Banco do Brasil.</strong></p>
+          <div id="js-bb-cota-label" class="fw-bold h-mb-3">R$ 00,00</div>
+          <div class="f-line-height h-mb-5">
+            Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.
           </div>
         </div>
-        <div style="display: none" id="js-via-cartao">
+
+        <div class="ninja" id="js-via-santander">
+          <p class="h-mt-3 h-mb-3 f-line-height">O <strong class="fw-bold">Anderson Ramos</strong> é o responsável por acompanhar as contribuições da campanha. Ele entrará em contato com as orientações para você realizar sua transferência no <strong class="fw-bold">Santander.</strong></p>
+          <div id="js-santander-cota-label" class="fw-bold h-mb-3">R$ 00,00</div>
+          <div class="f-line-height h-mb-5">
+            Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.
+          </div>
+        </div>
+
+        <div class="ninja" id="js-via-cartao">
           <div class="c-info-title">Cartão</div>
           <div class="c-info">
-            <p></p>
+            <p class="h-mb-3 f-line-height">Falta pouco... a sua contribuição será processada no ambiente do PagSeguro. Para isso, basta <strong class="fw-bold">clicar no botão abaixo</strong> e seguir o passo a passo.</p>
+            <p class="h-mb-3 f-line-height">O Anderson Ramos é o responsável por acompanhar as contribuições da campanha.</p>
             <div>
               <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="_blank">
                 <input type="hidden" name="currency" value="BRL" />
@@ -152,19 +162,13 @@
                 />
               </form>
             </div>
-          </div>
-        </div>
-        <div style="display: none" id="js-via-boleto">
-          <div class="c-info-title">Boleto</div>
-          <div class="c-info">
-            <label>Pagseguro</label>
-            <div><link para o pagseguro></div>
+            <p class="h-mt-3 h-mb-5 p-description">Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.</p>
           </div>
         </div>
       </div>
 
       <!-- FORM LOADER -->
-      <div id="js-loader" class="c-loader" style="display: none;">
+      <div id="js-loader" class="c-loader ninja">
         Enviando, aguarde...
       </div>
     </main>

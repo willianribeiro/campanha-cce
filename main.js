@@ -1,54 +1,47 @@
 window.onload = function () {
   const $form = $('form#js-form')
+  const $selectCota = $('#js-tipo-cota')
+  const $sectionContact = $('#js-section-contact')
+  const $sectionCotaUnica = $('#js-section-cota-unica')
+  const $labelItauCota = $('#js-itau-cota-label')
+  const $contribBB = $('#js-via-bb')
+  const $labelBB = $('#js-bb-cota-label')
+  const $contribSantander = $('#js-via-santander')
+  const $labelSantander = $('#js-santander-cota-label')
   const $inputValorContrib = $('#js-valor-contrib')
   const $inputPhone = $('#js-phone')
   const $inputCriadoEm = $('#js-criado-em')
-  const $parcelasWrapper = $('#js-parcelas-wrapper')
-  const $selectParcelas = $('#js-parcelas')
   const $selectFormaPagamento = $('#js-forma-pagamento')
   const $msgSuccess = $('#js-msg-sucesso')
-  const $contribItau = $('#js-via-itau')
-  const $contribBB = $('#js-via-bb')
-  const $contribSantander = $('#js-via-santander')
+  const $sectionContribItau = $('#js-via-itau')
   const $contribCartao = $('#js-via-cartao')
-  const $contribBoleto = $('#js-via-boleto')
   const $loader = $('#js-loader')
   const $pageTitle = $('#js-page-title')
   const url = 'https://script.google.com/macros/s/AKfycbxRCsDwB88yfzA-J0EXC4ge3AbCnztFnehxVzGvnYzDaN8bPqo/exec'
 
-  function preencherParcelas () {
-    const valueStr = $inputValorContrib.val().split('.').join('').split(',')[0]
-    const value = Number(valueStr)
-    const formaPagamento = $selectFormaPagamento.val()
-    $selectParcelas.find('option').remove()
+  function validateFormData () {
+    const cota = $selectCota.val()
 
-    if (formaPagamento === 'boleto' || formaPagamento === 'cartao') {
-      $parcelasWrapper.hide()
-      return
-    } else {
-      $parcelasWrapper.show()
+    if (cota === 'cota_3000plus') {
+      const valueStr = $inputValorContrib.val().split('.').join('').split(',')[0]
+      const value = Number(valueStr)
+
+      if (value <= 3000) {
+        alert('O valor deve ser maior que R$ 3.000,00')
+        $inputValorContrib.focus()
+        return false
+      }
     }
 
-    if (value <= 0) {
-      return
-    }
-
-    $selectParcelas.append(new Option(`Parcela única (R$ ${value})`, '1'));
-    $selectParcelas.append(new Option(`2 x R$ ${Number(value / 2).toFixed(2)}`, '2'));
-    $selectParcelas.append(new Option(`3 x R$ ${Number(value / 3).toFixed(2)}`, '3'));
-    $selectParcelas.append(new Option(`4 x R$ ${Number(value / 4).toFixed(2)}`, '4'));
-    $selectParcelas.append(new Option(`5 x R$ ${Number(value / 5).toFixed(2)}`, '5'));
-    $selectParcelas.append(new Option(`6 x R$ ${Number(value / 6).toFixed(2)}`, '6'));
-    $selectParcelas.append(new Option(`7 x R$ ${Number(value / 7).toFixed(2)}`, '7'));
-    $selectParcelas.append(new Option(`8 x R$ ${Number(value / 8).toFixed(2)}`, '8'));
-    $selectParcelas.append(new Option(`9 x R$ ${Number(value / 9).toFixed(2)}`, '9'));
-    $selectParcelas.append(new Option(`10 x R$ ${Number(value / 10).toFixed(2)}`, '10'));
-    $selectParcelas.append(new Option(`11 x R$ ${Number(value / 11).toFixed(2)}`, '11'));
-    $selectParcelas.append(new Option(`12 x R$ ${Number(value / 12).toFixed(2)}`, '12'));
+    return true
   }
 
   function sendFormData (e) {
-    e.preventDefault();
+    e.preventDefault()
+    if (!validateFormData()) {
+      return
+    }
+
     $form.hide()
     $loader.show()
     $inputCriadoEm.val(new Date().toLocaleString('pt-br'))
@@ -61,26 +54,48 @@ window.onload = function () {
       .done(function () {
         $loader.hide()
         $msgSuccess.show()
-        $pageTitle.text('Dados para contribuição')
-        const formaPagamento = $form.find('select[name="forma_pagamento"]').val()
+        $pageTitle.text('Formulário enviado com sucesso!')
+        const formaPagamento = $selectFormaPagamento.val()
 
         if (formaPagamento === 'itau') {
-          $contribItau.show()
+          $sectionContribItau.show()
+          const label = $selectCota.children("option:selected").html()
+          $labelItauCota.text(label)
         } else if (formaPagamento === 'brasil') {
           $contribBB.show()
-        } else if (formaPagamento === 'santander') {
+          const label = $selectCota.children("option:selected").html()
+          $labelBB.text(label)
+        } else if(formaPagamento === 'santander') {
           $contribSantander.show()
+          const label = $selectCota.children("option:selected").html()
+          $labelSantander.text(label)
         } else if (formaPagamento === 'cartao') {
           $contribCartao.show()
-        } else if (formaPagamento === 'boleto') {
-          $contribBoleto.show()
         }
       })
   }
 
+  function cotaChanged () {
+    const cota = $selectCota.val()
+
+    if (cota === '') {
+      $sectionCotaUnica.hide()
+      $sectionContact.hide()
+      return
+    }
+
+    if (cota === 'cota_3000plus') {
+      $sectionCotaUnica.show()
+    } else {
+      $inputValorContrib.val('')
+      $sectionCotaUnica.hide()
+    }
+
+    $sectionContact.show()
+  }
+
   $form.on('submit', sendFormData)
-  $selectFormaPagamento.on('change', preencherParcelas)
-  $inputValorContrib.on('blur', preencherParcelas)
+  $selectCota.on('change', cotaChanged)
   $inputValorContrib.mask('#.##0,00', { reverse: true, placeholder: 'R$ 0,00' })
   $inputPhone.mask('(00) 00000-0000', { placeholder: '(99) 98888-8888' })
 }
