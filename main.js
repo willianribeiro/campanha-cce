@@ -15,6 +15,7 @@ window.onload = function () {
   const $msgSuccess = $('#js-msg-sucesso')
   const $sectionContribItau = $('#js-via-itau')
   const $contribCartao = $('#js-via-cartao')
+  const $labelCartao = $('#js-cartao-cota-label')
   const $loader = $('#js-loader')
   const $pageTitle = $('#js-page-title')
   const url = 'https://script.google.com/macros/s/AKfycbxRCsDwB88yfzA-J0EXC4ge3AbCnztFnehxVzGvnYzDaN8bPqo/exec'
@@ -71,6 +72,8 @@ window.onload = function () {
           $labelSantander.text(label)
         } else if (formaPagamento === 'cartao') {
           $contribCartao.show()
+          const label = $selectCota.children("option:selected").html()
+          $labelCartao.text(label)
         }
       })
   }

@@ -43,15 +43,15 @@
       <form class="nnja" id="js-form">
         <!-- COTA -->
         <div class="c-form">
-          <label>Escola uma das cotas para contribuir *</label>
+          <label>Escola uma das cotas para contribuir (pode ser parcelada em até 18x)*</label>
           <select name="tipo_cota" id="js-tipo-cota" required>
             <option value="">-- selecione --</option>
-            <option value="cota_300">60,00 x 5 - Cota Estagiário (R$ 300)</option>
-            <option value="cota_500">100,00 x 5 - Cota Universitário (R$ 500)</option>
-            <option value="cota_750">150,00 x 5 - Cota Trainee (R$ 750)</option>
-            <option value="cota_1250">250,00 x 5 - Cota Profissional (R$ 1.250)</option>
-            <option value="cota_3000">600,00 x 5 - Cota Sênior (R$ 3.000)</option>
-            <option value="cota_3000plus">3.000,00+ - Cota Diretoria</option>
+			<option value="cota_300">Cota Estagiário (R$ 300)</option>
+            <option value="cota_500">Cota Universitário (R$ 500)</option>
+            <option value="cota_750">Cota Trainee (R$ 750)</option>
+            <option value="cota_1250">Cota Profissional (R$ 1.250)</option>
+            <option value="cota_3000">Cota Sênior (R$ 3.000)</option>
+            <option value="cota_3000plus">Cota Diretoria (acima de R$ 3.000,00)</option>
           </select>
         </div>
 
@@ -98,6 +98,7 @@
         </div>
       </form>
 
+
       <!-- FORM SUCCESS -->
       <div class="ninja" id="js-msg-sucesso">
         <div class="ninja" id="js-via-itau">
@@ -133,7 +134,7 @@
           <p class="h-mt-3 h-mb-3 f-line-height">O <strong class="fw-bold">Anderson Ramos</strong> é o responsável por acompanhar as contribuições da campanha. Ele entrará em contato com as orientações para você realizar sua transferência no <strong class="fw-bold">Banco do Brasil.</strong></p>
           <div id="js-bb-cota-label" class="fw-bold h-mb-3">R$ 00,00</div>
           <div class="f-line-height h-mb-5">
-            Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.
+            Em caso de dúvida você pode entrar em contato com o Anderson via WhatsApp: (12) 98831-5202.
           </div>
         </div>
 
@@ -141,7 +142,7 @@
           <p class="h-mt-3 h-mb-3 f-line-height">O <strong class="fw-bold">Anderson Ramos</strong> é o responsável por acompanhar as contribuições da campanha. Ele entrará em contato com as orientações para você realizar sua transferência no <strong class="fw-bold">Santander.</strong></p>
           <div id="js-santander-cota-label" class="fw-bold h-mb-3">R$ 00,00</div>
           <div class="f-line-height h-mb-5">
-            Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.
+            Em caso de dúvida você pode entrar em contato com o Anderson via WhatsApp: (12) 98831-5202.
           </div>
         </div>
 
@@ -150,7 +151,32 @@
           <div class="c-info">
             <p class="h-mb-3 f-line-height">Falta pouco... a sua contribuição será processada no ambiente do PagSeguro. Para isso, basta <strong class="fw-bold">clicar no botão abaixo</strong> e seguir o passo a passo.</p>
             <p class="h-mb-3 f-line-height">O Anderson Ramos é o responsável por acompanhar as contribuições da campanha.</p>
-            <div>
+
+			<!-- COLOCAR OS IFs, CONFORME COTA ESCOLHIDA-->
+			
+			<!-- cota_300 -->
+			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
+			<div><a href="https://pag.ae/7VHy8GN9m" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+
+			<!-- cota_500 -->
+			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
+			<div><a href="https://pag.ae/7VHy84Uup" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+
+			<!-- cota_750 -->
+			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
+			<div><a href="https://pag.ae/7VHy95jb5" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+
+			<!-- cota_1250 -->
+			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
+			<div><a href="https://pag.ae/7VHy9hUS7" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+
+			<!-- cota_3000 -->
+			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
+			<div><a href="https://pag.ae/7VHy9uenL" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+
+			<!-- cota_3000plus -->
+			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
+			<div>
               <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="_blank">
                 <input type="hidden" name="currency" value="BRL" />
                 <input type="hidden" name="receiverEmail" value="acere.sjc@gmail.com" />
@@ -162,7 +188,9 @@
                 />
               </form>
             </div>
-            <p class="h-mt-3 h-mb-5 p-description">Em caso de dúvida você pode entrar em contato com ele via WhatsApp: (12) 98831-5202.</p>
+			<!-- fim: COLOCAR OS IFs, CONFORME COTA ESCOLHIDA-->
+
+            <p class="h-mt-3 h-mb-5 p-description">Em caso de dúvida você pode entrar em contato com o Anderson via WhatsApp: (12) 98831-5202.</p>
           </div>
         </div>
       </div>
