@@ -46,6 +46,7 @@ window.onload = function () {
     $form.hide()
     $loader.show()
     $inputCriadoEm.val(new Date().toLocaleString('pt-br'))
+
     $.ajax({
       url: url,
       method: "GET",
@@ -71,9 +72,23 @@ window.onload = function () {
           const label = $selectCota.children("option:selected").html()
           $labelSantander.text(label)
         } else if (formaPagamento === 'cartao') {
-          $contribCartao.show()
+          const cota = $selectCota.val()
           const label = $selectCota.children("option:selected").html()
+          $contribCartao.show()
           $labelCartao.text(label)
+          if (cota === 'cota_300') {
+            $('#js-cota-300').show()
+          } else if (cota === 'cota_500') {
+            $('#js-cota-500').show()
+          } else if (cota === 'cota_750') {
+            $('#js-cota-750').show()
+          } else if (cota === 'cota_1250') {
+            $('#js-cota-1250').show()
+          } else if (cota === 'cota_3000') {
+            $('#js-cota-3000').show()
+          } else if (cota === 'cota_3000plus') {
+            $('#js-cota-3000plus').show()
+          }
         }
       })
   }

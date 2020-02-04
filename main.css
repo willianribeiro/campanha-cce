@@ -14,6 +14,12 @@ body {
 /* background-color: #e6e6e6;
 background-image: url('img/background.jpg'); */
 
+small {
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+}
+
 
 /* SITE COMPONENTS */
 .site-wrapper {

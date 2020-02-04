@@ -40,19 +40,21 @@
       </header>
 
       <!-- FORM -->
-      <form class="nnja" id="js-form">
+      <form id="js-form">
         <!-- COTA -->
         <div class="c-form">
-          <label>Escola uma das cotas para contribuir (pode ser parcelada em até 18x)*</label>
+          <!-- <label>Escola uma das cotas para contribuir (pode ser parcelada em até 18x)*</label> -->
+          <label>Escola uma das cotas para contribuir *</label>
           <select name="tipo_cota" id="js-tipo-cota" required>
             <option value="">-- selecione --</option>
-			<option value="cota_300">Cota Estagiário (R$ 300)</option>
+			      <option value="cota_300">Cota Estagiário (R$ 300)</option>
             <option value="cota_500">Cota Universitário (R$ 500)</option>
             <option value="cota_750">Cota Trainee (R$ 750)</option>
             <option value="cota_1250">Cota Profissional (R$ 1.250)</option>
             <option value="cota_3000">Cota Sênior (R$ 3.000)</option>
             <option value="cota_3000plus">Cota Diretoria (acima de R$ 3.000,00)</option>
           </select>
+          <small>pode ser parcelada em até 18x</small>
         </div>
 
         <!-- VALOR - SE DOACAO ÚNICA -->
@@ -151,44 +153,58 @@
           <div class="c-info">
             <p class="h-mb-3 f-line-height">Falta pouco... a sua contribuição será processada no ambiente do PagSeguro. Para isso, basta <strong class="fw-bold">clicar no botão abaixo</strong> e seguir o passo a passo.</p>
             <p class="h-mb-3 f-line-height">O Anderson Ramos é o responsável por acompanhar as contribuições da campanha.</p>
+            <div>
+              <div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
 
-			<!-- COLOCAR OS IFs, CONFORME COTA ESCOLHIDA-->
-			
-			<!-- cota_300 -->
-			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
-			<div><a href="https://pag.ae/7VHy8GN9m" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+              <!-- cota_300 -->
+              <div id="js-cota-300">
+                <a href="https://pag.ae/7VHy8GN9m" target="_blank" title="Pagar com PagSeguro">
+                  <img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                </a>
+              </div>
 
-			<!-- cota_500 -->
-			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
-			<div><a href="https://pag.ae/7VHy84Uup" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+              <!-- cota_500 -->
+              <div id="js-cota-500">
+                <a href="https://pag.ae/7VHy84Uup" target="_blank" title="Pagar com PagSeguro">
+                  <img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                </a>
+              </div>
 
-			<!-- cota_750 -->
-			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
-			<div><a href="https://pag.ae/7VHy95jb5" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+              <!-- cota_750 -->
+              <div id="js-cota-750">
+                <a href="https://pag.ae/7VHy95jb5" target="_blank" title="Pagar com PagSeguro">
+                  <img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                </a>
+              </div>
 
-			<!-- cota_1250 -->
-			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
-			<div><a href="https://pag.ae/7VHy9hUS7" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+              <!-- cota_1250 -->
+              <div id="js-cota-1250">
+                <a href="https://pag.ae/7VHy9hUS7" target="_blank" title="Pagar com PagSeguro">
+                  <img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                </a>
+              </div>
 
-			<!-- cota_3000 -->
-			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
-			<div><a href="https://pag.ae/7VHy9uenL" target="_blank" title="Pagar com PagSeguro"><img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a></div>
+              <!-- cota_3000 -->
+              <div id="js-cota-3000">
+                <a href="https://pag.ae/7VHy9uenL" target="_blank" title="Pagar com PagSeguro">
+                  <img src="img/pagseguro-bg.png" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                </a>
+              </div>
 
-			<!-- cota_3000plus -->
-			<div id="js-cartao-cota-label" class="fw-bold">R$ 00,00</div>
-			<div>
-              <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="_blank">
-                <input type="hidden" name="currency" value="BRL" />
-                <input type="hidden" name="receiverEmail" value="acere.sjc@gmail.com" />
-                <input
-                  type="image"
-                  name="submit"
-                  alt="Pague com PagSeguro - é rápido, grátis e seguro!"
-                  src="img/pagseguro-bg.png"
-                />
-              </form>
+              <!-- cota_3000plus -->
+              <div id="js-cota-3000plus">
+                <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="_blank">
+                  <input type="hidden" name="currency" value="BRL" />
+                  <input type="hidden" name="receiverEmail" value="acere.sjc@gmail.com" />
+                  <input
+                    type="image"
+                    name="submit"
+                    alt="Pague com PagSeguro - é rápido, grátis e seguro!"
+                    src="img/pagseguro-bg.png"
+                  />
+                </form>
+              </div>
             </div>
-			<!-- fim: COLOCAR OS IFs, CONFORME COTA ESCOLHIDA-->
 
             <p class="h-mt-3 h-mb-5 p-description">Em caso de dúvida você pode entrar em contato com o Anderson via WhatsApp: (12) 98831-5202.</p>
           </div>
